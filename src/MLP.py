@@ -42,11 +42,11 @@ class MultiLayerPerceptron:
         
         for i in range(len(self.layers)):
             self.values.append([])
-            self.networks.append([])
+            self.network.append([])
             self.values[i]=[0.0 for j in range(len(self.layers[i]))]
             if i>0: #network[0] is the input layer, so it has no neurons
                 for j in range(self.layers[i]):
-                    self.network.append(Perceptron(inputs=self.layer[i-1],bias=self.bias))
+                    self.network.append(Perceptron(inputs=self.layers[i-1],bias=self.bias))
         
         self.network = np.array([np.array(x) for x in self.network],dtype=object)
         self.values = np.array([np.array(x) for x in self.values],dtype=object)
